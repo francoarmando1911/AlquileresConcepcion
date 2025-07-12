@@ -1,35 +1,35 @@
 <header class="header">
     <div class="header__container">
-        <div class="header__left">
-            <img src="/src/assets/AlquileresConcepcion.png" alt="Alquileres Concepción" width="50" height="50" class="header__logo" />
-            <div class="header__title-group">
+        <div class="header__brand">
+            <img src="assets/logo.png" alt="Alquileres Concepción" width="50" height="50" class="header__logo" />
+            <div class="header__titles">
                 <h1 class="header__title">Alquileres Concepción</h1>
                 <p class="header__subtitle">Turismo & Descanso</p>
             </div>
         </div>
 
-        <!-- Botón hamburguesa -->
-        <button class="header__toggle" (click)="toggleMenu()" aria-label="Toggle menu">
-            <span [class.active]="isMenuOpen"></span>
-            <span [class.active]="isMenuOpen"></span>
-            <span [class.active]="isMenuOpen"></span>
-        </button>
-
-        <!-- Navegación desktop -->
         <nav class="header__nav">
-            <a href="#propiedades" class="header__link">Propiedades</a>
-            <a href="#servicios" class="header__link">Servicios</a>
-            <a href="#contacto" class="header__link">Contacto</a>
+            <div class="header__links">
+                <a href="#propiedades" class="header__link">Propiedades</a>
+                <a href="#servicios" class="header__link">Servicios</a>
+                <a href="#contacto" class="header__link">Contacto</a>
+            </div>
             <button class="header__button">Publicar Propiedad</button>
         </nav>
+
+        <button class="header__hamburger" (click)="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+            <span class="header__hamburger-line" [class.active]="isMenuOpen"></span>
+            <span class="header__hamburger-line" [class.active]="isMenuOpen"></span>
+            <span class="header__hamburger-line" [class.active]="isMenuOpen"></span>
+        </button>
     </div>
 
-    <!-- Menú mobile -->
-    <div class="header__mobile-menu" *ngIf="isMenuOpen">
-        <a href="#propiedades" (click)="closeMenu()">Propiedades</a>
-        <a href="#servicios" (click)="closeMenu()">Servicios</a>
-        <a href="#contacto" (click)="closeMenu()">Contacto</a>
-        <button class="header__button" (click)="closeMenu()">Publicar Propiedad</button>
+    <div class="header__mobile-nav" *ngIf="isMenuOpen">
+        <nav class="header__mobile-links">
+            <a href="#propiedades" class="header__mobile-link" (click)="closeMenu()">Propiedades</a>
+            <a href="#servicios" class="header__mobile-link" (click)="closeMenu()">Servicios</a>
+            <a href="#contacto" class="header__mobile-link" (click)="closeMenu()">Contacto</a>
+            <button class="header__mobile-button" (click)="closeMenu()">Publicar Propiedad</button>
+        </nav>
     </div>
 </header>
-  

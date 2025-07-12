@@ -1,0 +1,198 @@
+/* Variables reutilizables */
+$primary-color: #8fae9a;
+$primary-hover: #7a9b85;
+$text-color: #ffffff;
+$shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+$transition: all 0.3s ease;
+
+.hero {
+  position: relative;
+  height: 100vh;
+  max-height: 800px;
+  min-height: 500px;
+  background-image: url('/assets/imgcdu.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-color;
+  text-align: center;
+  padding: 0 1rem;
+  overflow: hidden;
+  /* Evita desbordamientos */
+
+  /* Overlay para mejor contraste */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    /* Escalado responsive */
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.2;
+    padding: 0 1rem;
+  }
+
+  &__search {
+    display: flex;
+    max-width: 650px;
+    margin: 0 auto;
+    box-shadow: $shadow;
+    transition: $transition;
+
+    &-input {
+      flex: 1;
+      padding: 1.1rem 1.5rem;
+      border: none;
+      border-radius: 50px 0 0 50px;
+      font-size: 1rem;
+      outline: none;
+      font-family: 'Roboto', sans-serif;
+      transition: $transition;
+
+      &:focus {
+        transform: scale(1.02);
+      }
+
+      &::placeholder {
+        color: #999;
+      }
+    }
+
+    &-button {
+      background-color: $primary-color;
+      color: $text-color;
+      border: none;
+      border-radius: 0 50px 50px 0;
+      padding: 0 1.8rem;
+      cursor: pointer;
+      transition: $transition;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 60px;
+
+      &:hover {
+        background-color: $primary-hover;
+        transform: scale(1.05);
+      }
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  /* Tablet (768px) */
+  @media (max-width: 768px) {
+    height: 70vh;
+    min-height: 450px;
+
+    &__title {
+      margin-bottom: 1.8rem;
+      font-size: clamp(1.8rem, 6vw, 2.5rem);
+    }
+
+    &__search {
+      max-width: 85%;
+
+      &-input {
+        padding: 1rem 1.3rem;
+      }
+
+      &-button {
+        padding: 0 1.5rem;
+      }
+    }
+  }
+
+  /* Móvil (576px) */
+  @media (max-width: 576px) {
+    min-height: 400px;
+    height: 65vh;
+    padding: 0 0.5rem;
+
+    &__content {
+      padding: 0 1rem;
+    }
+
+    &__title {
+      margin-bottom: 1.5rem;
+      font-size: clamp(1.5rem, 7vw, 2rem);
+    }
+
+    &__search {
+      flex-direction: column;
+      gap: 0.8rem;
+      max-width: 100%;
+      box-shadow: none;
+      padding: 0 0.5rem;
+
+      &-input {
+        border-radius: 50px;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      &-button {
+        border-radius: 50px;
+        padding: 0.9rem;
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          transform: none;
+        }
+      }
+    }
+  }
+
+  /* Pantallas muy pequeñas (400px) */
+  @media (max-width: 400px) {
+    min-height: 350px;
+
+    &__search {
+      &-button {
+        padding: 0.8rem;
+      }
+    }
+  }
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
