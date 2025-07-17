@@ -21,9 +21,7 @@ $transition: all 0.3s ease;
   text-align: center;
   padding: 0 1rem;
   overflow: hidden;
-  /* Evita desbordamientos */
-
-  /* Overlay para mejor contraste */
+  
   &::before {
     content: '';
     position: absolute;
@@ -105,7 +103,7 @@ $transition: all 0.3s ease;
     }
   }
 
-  /* Tablet (768px) */
+  /* (768px) */
   @media (max-width: 768px) {
     height: 70vh;
     min-height: 450px;
@@ -128,7 +126,7 @@ $transition: all 0.3s ease;
     }
   }
 
-  /* Móvil (576px) */
+  /* (576px) */
   @media (max-width: 576px) {
     min-height: 400px;
     height: 65vh;
@@ -172,7 +170,7 @@ $transition: all 0.3s ease;
     }
   }
 
-  /* Pantallas muy pequeñas (400px) */
+  /* (400px) */
   @media (max-width: 400px) {
     min-height: 350px;
 
@@ -184,7 +182,6 @@ $transition: all 0.3s ease;
   }
 }
 
-/* Animación */
 @keyframes fadeInUp {
   from {
     opacity: 0;
