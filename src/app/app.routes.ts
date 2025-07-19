@@ -10,6 +10,9 @@ export const routes: Routes = [
     {
         path: 'alquileres',
         component: AlquileresComponent
+    },
+    {
+        path: '**',
+        redirectTo: ''
     }
-    
 ];
